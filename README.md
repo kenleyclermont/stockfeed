@@ -1,6 +1,6 @@
 # StockFeed
 
-# Use Cases 
+## Use Cases 
 
 ### Internet Connection
 
