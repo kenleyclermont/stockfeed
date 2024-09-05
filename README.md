@@ -1,8 +1,6 @@
 # StockFeed
 
-# Demo
-
-## Use Case 
+# Use Cases 
 
 ### Internet Connection
 
