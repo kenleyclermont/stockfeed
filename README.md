@@ -1,7 +1,5 @@
 # StockFeed
 
-![stockfeed logo](https://github.com/kenleyclermont/stockfeed/blob/master/stockfeed_logo.gif)
-
 # Demo
 
 ## Use Case 
