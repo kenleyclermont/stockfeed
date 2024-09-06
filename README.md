@@ -4,7 +4,7 @@
 
 ### Internet Connection
 
-![stockfeed logo](https://github.com/kenleyclermont/stockfeed/blob/master/view_internet.gif)
+![internet connection success](https://github.com/kenleyclermont/stockfeed/blob/master/view_internet.gif)
 
 ### No Internet Connection
 
@@ -12,7 +12,7 @@
 
 ### Internet Reload
 
-![stockfeed logo](https://github.com/kenleyclermont/stockfeed/blob/master/view_internetreload.gif)
+![internet reload](https://github.com/kenleyclermont/stockfeed/blob/master/view_internetreload.gif)
 
 ## Overview
 
