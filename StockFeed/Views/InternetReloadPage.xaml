@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockFeed.Views.InternetReloadPage"
+             xmlns:vm="clr-namespace:StockFeed.ViewModels"
+             x:DataType="vm:CompaniesPageViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout BackgroundColor="Black">
+            <Label 
+                Text="You are offline! Please, check your internet connection and try again."
+                FontSize="24"   Padding="20,250,20,0"
+                VerticalOptions="Center"  HorizontalOptions="Center" />
+            <Button x:Name="ButtonRetry" Text="Retry" TextColor="#8533EC" Padding="20,10,20,10" Margin="0,30,0,0"
+                    BorderColor="white" BorderWidth="1" BackgroundColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CompaniesPageViewModel}}, Path=ReloadCompanyCommand}">
+            </Button>
+            <Button x:Name="ButtonCancelRequest" Text="Cancel" TextColor="#8533EC" Padding="20,10,20,10" Margin="0,10,0,0"
+                    BorderColor="white" BorderWidth="1" BackgroundColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CompaniesPageViewModel}}, Path=CancelRequestCommand}">
+            </Button>
+        </StackLayout>
+    </Grid>
+</ContentPage>

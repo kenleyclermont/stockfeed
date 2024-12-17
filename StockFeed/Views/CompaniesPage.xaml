@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:StockFeed.Models"
+             xmlns:vm="clr-namespace:StockFeed.ViewModels"
+             x:DataType="vm:CompaniesPageViewModel"
+             x:Class="StockFeed.Views.CompaniesPage">
+
+    <Grid RowDefinitions="auto, *, auto" RowSpacing="5" Margin="5" BackgroundColor="Black">
+
+        <!-- Search Bar -->
+        <SearchBar  x:Name="SearchBarCompanies" Text="{Binding SearchCompany}" 
+                    Placeholder="Search for a company..." PlaceholderColor="#707070"
+                    TextColor="White" BackgroundColor="#1E1E1E"
+                    Margin="0,0,0,10" HeightRequest="50" />
+
+        <!-- Companies CollectionView -->
+        <CollectionView Grid.Row="1" x:Name="Companies" ItemsSource="{Binding FilteredCompanies}"
+                        EmptyView="No Company!" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Company">
+                    <Border Stroke="#8533EC" StrokeShape="RoundRectangle 10" Margin="5" Padding="10" BackgroundColor="#1E1E1E" 
+                            HeightRequest="100">
+                        <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+                            <!-- Company Logo -->
+                            <Image Source="{Binding LogoImagePath}" WidthRequest="75" HeightRequest="75" Aspect="AspectFit" BackgroundColor="#2A2A2A" />
+
+                            <!-- Company Name and Symbol -->
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Name}" TextColor="#8533EC" FontSize="18" FontAttributes="Bold" />
+                                        <Span Text=": " FontSize="18" TextColor="White" />
+                                        <Span Text="{Binding Symbol}" FontSize="18" TextColor="White" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </HorizontalStackLayout>
+
+                        <!-- Company Selection Command -->
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:CompaniesPageViewModel}}, Path=SelectCompanyCommand}" CommandParameter="{Binding .}"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Cancel Button -->
+        <Button Grid.Row="2" 
+                x:Name="ButtonCancelCompanies" Text="Cancel" TextColor="#8533EC" FontSize="20"
+                VerticalOptions="End" BackgroundColor="#2A2A2A" HorizontalOptions="FillAndExpand" 
+                CornerRadius="10" Padding="0,12,0,12" Margin="0,30,0,20"
+                Command="{Binding CancelViewCompaniesCommand}"/>
+    </Grid>
+</ContentPage>
